@@ -1,7 +1,6 @@
 <?php include(TEMPLATEPATH.'/head.php'); ?>
-<?php get_header(); ?>
-
-<body="body_404">
+<body id="body_404">
+  <?php get_header(); ?>
 		<div class="post">
 		
 			<h1>Page Not Found</h1>

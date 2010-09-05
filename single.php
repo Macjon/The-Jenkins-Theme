@@ -1,7 +1,6 @@
 <?php include(TEMPLATEPATH.'/head.php'); ?>
+<body id="body_single">
 <?php get_header(); ?>
-
-<body="body_single">
 <?php while(have_posts()) : the_post(); ?>
 
 		<div class="post" id="<?php the_ID(); ?>">

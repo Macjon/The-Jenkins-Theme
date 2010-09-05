@@ -1,9 +1,7 @@
 <?php include(TEMPLATEPATH.'/head.php'); ?>
-<?php get_header(); ?>
-
-<body="body_archive">
-
-		<?php if(have_posts()) : ?>
+<body id="body_archive">
+  <?php get_header(); ?>
+	<?php if(have_posts()) : ?>
 	
 		<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
 		<?php /* If this is a category archive */ if (is_category()) { ?>
