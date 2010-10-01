@@ -1,53 +1,132 @@
 /*
-Theme Name: Jenkins Theme
-Theme URI: http://www.lapersonnalite.com
-Description: Our firestarter blank theme
-Version: 1.0
-Author: La Personnalité
-Author URI: http://www.lapersonnalite.com
+Site design by: La Personnalité
+URL: http://www.lapersonnalite.com/
+e-mail: hq@lapersonnalite.com
 */
 
-/* @group Reset */
-html
+/*
+Interesting references:
+- Font stacks: http://www.awayback.com/revised-font-stack/
+- Dean Edwards: IE7.js is a JavaScript library to make Microsoft Internet Explorer behave like a standards-compliant browser. It fixes many HTML and CSS issues and makes transparent PNG work correctly under IE5 and IE6. (http://code.google.com/p/ie7-js/)
+- Apply CSS3 in all possible browsers: http://css3please.com/
+- Selectivizr: Permite emplear seletores de CSS3 en todos los navegadores. http://selectivizr.com/
+- Forms validation: http://www.alistapart.com/articles/forward-thinking-form-validation/
+- HTML5Form: para validar forms HTML5 en navegadores antiguos (http://www.matiasmancini.com.ar/html5form.php)
+*/
+
+/* @group RESET */
+/* 
+RESET
+Es una modificación personalizada basada en:
+html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+html5doctor.com/html-5-reset-stylesheet/
+
+Mucha de la inspiración para este reset proviene de:
+yui.yahooapis.com/2.8.1/build/base/base.css
+camendesign.com/design/
+praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video,
+applet, object
 {
-	/*This odd 100.01% value for the font size compensates for several browser bugs.
-First, setting a default body font size in percent (instead of em) eliminates an IE/Win problem with growing or shrinking fonts out of proportion if they are later set in ems in other elements.
-Additionally, some versions of Opera will draw a default font-size of 100% too small compared to other browsers.
-Safari, on the other hand, has a problem with a font-size of 101%.
-The current "best" suggestion is to use the 100.01% value for this property.*/
-	font-size: 100.01%;
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
 }
 
-html, body {margin: 0;padding: 0;}
+/* Always force a scrollbar in non-IE */ 
+html {overflow-y: scroll;}          
 
-div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, q, cite, a, abbr, acronym, address, big, small, code, samp, var, tt, pre, del, ins, strike, dfn, kbd, em, strong, font, img, s, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,caption, tbody, tfoot, thead, tr, th, td
-{font-size: 100%;vertical-align: baseline;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block;}
+nav ul {list-style:none;}
+blockquote, q {quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after {content:''; content:none;}
+a {margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent;}
 
-:link,:visited {text-decoration: none;}
-div, dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,input,pre,p,blockquote {margin: 0;padding: 0;}
-dl,ul,ol {list-style: none;list-style-type: none;}
-/* NOTA: tables still need 'cellspacing="0"' in the markup */
-table {border-collapse: collapse;border-spacing: 0;}
+/*  j.mp/webkit-tap-highlight-color */
+a:link {-webkit-tap-highlight-color: #FF5E99;} 
 
-a,
-a:hover,
-a:active,
-a img,
-:link img,
-:visited img
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {outline: none;}
+
+/* Evitar que address salga en itálica */
+address {font-style: normal;}
+
+ins {background-color:#ff9; text-decoration:none;}
+mark {background-color:#ff9; font-style:italic; font-weight:bold;}
+del {text-decoration: line-through;}
+abbr[title], dfn[title] {border-bottom:1px dotted; cursor:help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse:collapse; border-spacing:0;}
+
+hr {display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0;}
+
+/* Remove textarea scrollbars: www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+textarea {overflow: auto;}
+
+/* Alinea en el centro input y select */
+input, select {vertical-align:middle;}
+
+/* normalize monospace sizing: en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* Formatting quoted code: www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+pre
 {
-	border: none;
-	outline: none;
-	outline-style: none;
+	white-space: pre; /* CSS2 */
+	white-space: -moz-pre-wrap; /* Mozilla, but let's make this comment really, really, really long to prove our point*/
+	white-space: -hp-pre-wrap; /* HP printers */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+	word-wrap: break-word; /* IE */
 }
 
-:focus {outline: 0;}
-address,caption,cite,code,dfn,th,var {font-style: normal; font-weight: normal;}
-pre, code, tt, samp {font-size: 12px;}
-kbd {text-transform: uppercase;}
-sup {vertical-align: super;}
-sub {vertical-align: sub;}
-pre {white-space: pre;}
+/* thnx ivannikolic! */
+.ie6 legend, .ie7 legend {margin-left: -7px;}
+
+/* make buttons play nice in IE: www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {width: auto; overflow: visible;}
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button {cursor: pointer;}
+
+/* webkit browsers add a 2px margin outside the chrome of form elements */  
+button, input, select, textarea {margin: 0;}
+
+/* Align checkboxes, radios, text inputs with their label by Thierry Koblentz: tjkdesign.com/ez-css/css/base.css */
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom;}
+.ie7 input[type="checkbox"] {vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+/* Bicubic resizing for non-native sized IMG: code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* Hides any empty object like <p></p>. Typical in Wordpress posts.
+NOTE: For now, this technique only works in supportive browsers, which seems to be anything based on Mozilla. Unfortunately, Safari applies the rule to all elements of the specified element type. Internet Explorer has absolutely no idea what we’re talking about here.
+*/
+*:empty {display: none;}
+
 
 blockquote:before,
 blockquote:after,
@@ -55,6 +134,633 @@ q:before,
 q:after
 {content:"";}
 
-blockquote,q{quotes: "" "";}
+blockquote, q {quotes: "" "";}
+
+/* STANDARD QUOTES */
+q {quotes: "\201C" "\201D" "\2018" "\2019";}
+q:lang(sv) {quotes: '\201D' '\201D' '\2019' '\2019';}
+q:lang(da) {quotes: '\00BB' '\00AB' '\203A' '\2039';}
+
+q:before {content: open-quote;}
+q:after  {content: close-quote;}
+
+/* SAFARI SUPPORT */
+q:before   {content: '\201C';}
+q:after    {content: '\201D';}
+q q:before {content: '\2018';}
+q q:after  {content: '\2019';}
+
+/* BLOCKQUOTES */
+blockquote * {quotes: none;}
+blockquote > *:before {content: '\201C';}
+blockquote > *:after  {content: '\201D';}
+blockquote q:before   {content: '\2018';}
+blockquote q:after    {content: '\2019';}
+
+/* LANGUAGE-SPECIFIC QUOTES SAFARI STYLE */
+*[lang~='da'] q:before, q[lang~='da']:before,
+*[lang~='da'] blockquote > *:before, blockquote[lang~='da'] > *:before {content: '\201E';}
+
+*[lang~='da'] q:after, q[lang~='da']:after,
+*[lang~='da'] blockquote > *:after, blockquote[lang~='da'] > *:after {content: '\201C';}
+
+*[lang~='da'] q q:before, q[lang~='da'] q:before,
+*[lang~='da'] blockquote q:before, blockquote[lang~='da'] q:before {content: '\2019';}
+
+*[lang~='da'] q q:after, q[lang~='da'] q:after,
+*[lang~='da'] blockquote q:after, blockquote[lang~='da'] q:after {content: '\2019';}
+
+*[lang~='sv'] q:before, q[lang~='sv']:before,
+*[lang~='sv'] blockquote > *:before, blockquote[lang~='sv'] > *:before {content: '\201D';}
+
+*[lang~='sv'] q:after, q[lang~='sv']:after,
+*[lang~='sv'] blockquote > *:after, blockquote[lang~='sv'] > *:after {content: '\201D';}
+
+*[lang~='sv'] q q:before, q[lang~='sv'] q:before,
+*[lang~='sv'] blockquote q:before, blockquote[lang~='sv'] q:before {content: '\2019';}
+
+*[lang~='sv'] q q:after,  q[lang~='sv'] q:after,
+*[lang~='sv'] blockquote q:after, blockquote[lang~='sv'] q:after {content: '\2019';}
 /* @end */
 
+
+
+/* @group HTML Elements */
+/*
+References:
+· Periodic table of the elements: http://joshduck.com/periodic-table.html
+· HTML5 Doctor: http://html5doctor.com/glossary/
+*/
+html {}
+
+/* Set your base font here, to apply evenly */
+body, select, input, textarea {font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+
+/* Margins */
+nav, section, article, header, footer, aside, address,
+div, p, ol, ul, dl, blockquote, figure
+{margin: 0 0 1.5em 0;}
+
+
+/* @group Document sections */
+body {}
+nav {}
+section {}
+article {}
+header {}
+footer {}
+aside {}
+address {}
+hgroup {}
+h1,h2,h3,h4,h5,h6 {}
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+/* @end */
+
+
+
+/* @group Text level semantics */
+a:link {} 
+a:visited {}
+a:hover, a:focus {}
+a:active {}
+
+span {}
+rt {}
+rp {}
+dfn {}
+abbr {}
+cite {font-style: normal;}
+q {}
+time {}
+var {}
+i {}
+em {}
+b {}
+strong {}
+sub {vertical-align: sub; font-size: smaller;}
+sup {vertical-align: super; font-size: smaller;}
+small {font-size: 85%;}
+mark {}
+ins {}
+del {}
+code {}
+kbd {}
+samp {}
+ruby {}
+bdo {}
+wbr {}
+/* @end */
+
+
+
+/* @group Grouping content */
+div {}
+pre {}
+p {}
+ol {list-style-type: decimal;}
+ul {}
+li {}
+dl {}
+dt {}
+dd {}
+blockquote {}
+figure {}
+figcaption {}
+hr {}
+br {}
+/* @end */
+
+
+
+/* @group Forms */
+form {}
+fieldset {}
+legend {}
+label {}
+input {}
+textarea {}
+select {}
+optgroup {}
+option {}
+button {}
+meter {}
+output {}
+datalist {}
+keygen {}
+progress {}
+
+/* colors for form validity */
+input:valid, textarea:valid   {}
+input:invalid, textarea:invalid
+{
+	-moz-box-shadow: 0 0 5px red; 
+	-webkit-box-shadow: 0 0 5px red; 
+	box-shadow: 0 0 5px red;
+}
+.no-boxshadow input:invalid, 
+.no-boxshadow textarea:invalid
+{background-color: #f0dddd;}
+/* @end */
+
+
+
+/* @group Tabular data */
+col {}
+colgroup {}
+caption {}
+table {}
+tbody {}
+thead {}
+tfoot {}
+tr {}
+td {}
+th {}
+/* @end */
+
+
+
+/* @group Interactive elements */
+menu {}
+command {}
+summary {}
+details {}
+/* @end */
+
+
+
+/* @group Embedding content */
+img {}
+area {}
+map {}
+embed {}
+object {}
+param {}
+source {}
+iframe {}
+canvas {}
+audio {}
+video {}
+track {/*This element is still being drafted.*/}
+device {/*This element is still being drafted.*/}
+/* @end */
+
+
+
+/* @group Selection */
+/* These selection declarations have to be separate.
+   Evitamos uso de text-shadow (heredado de otras declaraciones) porque sino se hace complicado ver el texto seleccionado. */
+::-moz-selection{background: #FF5E99; color:#fff; text-shadow: none;}
+::selection {background:#FF5E99; color:#fff; text-shadow: none;} 
+/* @end */
+/* @end */
+
+
+
+/* @group Non-semantic helper classes */
+/* for image replacement */
+.ir {display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr;}
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden {display: none; visibility: hidden;} 
+
+/* Hide only visually, but have it available for screenreaders 
+   www.webaim.org/techniques/css/invisiblecontent/ 
+   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+.visuallyhidden {position: absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);}
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {visibility: hidden;}
+
+/* CLEARFIX: j.mp/phayesclearfix */
+.clearfix:after
+{content: "\0020"; display: block; height: 0; clear: both; visibility: hidden;}
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix
+{zoom: 1;}
+/* @end */
+
+
+
+/* @group Wordpress Default CSS Styles */
+/* Reference URL: http://digwp.com/2010/05/default-wordpress-css-styles-hooks/ */
+
+/* @group WordPress WYSIWYG Editor Styles */
+.entry-content img {
+	margin: 0 0 1.5em 0;
+	}
+.alignleft, img.alignleft {
+	margin-right: 1.5em;
+	display: inline;
+	float: left;
+	}
+.alignright, img.alignright {
+	margin-left: 1.5em;
+	display: inline;
+	float: right;
+	}
+.aligncenter, img.aligncenter {
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	clear: both;
+	}
+.alignnone, img.alignnone {
+	/* not sure about this one */
+	}
+.wp-caption {
+	margin-bottom: 1.5em;
+	text-align: center;
+	padding-top: 5px;
+	}
+.wp-caption img {
+	border: 0 none;
+	padding: 0;
+	margin: 0;
+	}
+.wp-caption p.wp-caption-text {
+	line-height: 1.5;
+	font-size: 10px;
+	margin: 0;
+	}
+.wp-smiley {
+	margin: 0 !important;
+	max-height: 1em;
+	}
+blockquote.left {
+	margin-right: 20px;
+	text-align: right;
+	margin-left: 0;
+	width: 33%;
+	float: left;
+	}
+blockquote.right {
+	margin-left: 20px;
+	text-align: left;
+	margin-right: 0;
+	width: 33%;
+	float: right;
+	}
+.gallery dl {}
+.gallery dt {}
+.gallery dd {}
+.gallery dl a {}
+.gallery dl img {}
+.gallery-caption {}
+
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}
+/* @end */
+
+
+
+/* @group WordPress CSS - Miscellaneous Styles */
+/* category links */
+ li.categories {}  
+ li.cat-item {}
+ li.cat-item-{id} {}
+ li.current-cat {}
+ li.current-cat-parent {}
+ ul.children {}
+
+/* blogroll links */
+.linkcat {}
+.blogroll {}
+
+/* read-more links */
+.more-link {}
+/* @end */
+
+
+
+/* @group WordPress CSS - Page Listings */
+.pagenav {}               /* outermost list item */
+.page_item {}             /* any page item */
+.page-item-{id} {}        /* specific page id */
+.current_page_item {}     /* current page */
+.current_page_parent {}   /* parent of current page */
+.current_page_ancestor {} /* any ancestor of current page */
+
+.pagenav ul,
+.pagenav .current_page_item ul,
+.pagenav .current_page_ancestor ul,
+.pagenav .current_page_ancestor .current_page_item ul,
+.pagenav .current_page_ancestor .current_page_ancestor ul,
+.pagenav .current_page_ancestor .current_page_ancestor .current_page_item ul,
+.pagenav .current_page_ancestor .current_page_ancestor .current_page_ancestor ul {}
+
+.pagenav  ul ul,
+.pagenav .current_page_item ul ul,
+.pagenav .current_page_ancestor ul ul,
+.pagenav .current_page_ancestor .current_page_item ul ul,
+.pagenav .current_page_ancestor .current_page_ancestor ul ul {}
+.pagenav .current_page_ancestor .current_page_ancestor .current_page_item ul ul, 
+.pagenav .current_page_ancestor .current_page_ancestor .current_page_ancestor ul ul {}
+/* @end */
+
+
+
+/* @group WordPress CSS - Default WordPress Widgets */
+.widget {}
+
+/* links widget */
+.widget_links {}
+.widget_links ul {}
+.widget_links ul li {}
+.widget_links ul li a {}
+
+/* meta widget */
+.widget_meta {}
+.widget_meta ul {}
+.widget_meta ul li {}
+.widget_meta ul li a {}
+
+/* pages widget */
+.widget_pages {}
+.widget_pages ul {}
+.widget_pages ul li {}
+.widget_pages ul li a {}
+
+/* recent-posts widget */
+.widget_recent_entries {}
+.widget_recent_entries ul {}
+.widget_recent_entries ul li {}
+.widget_recent_entries ul li a {}
+
+/* archives widget */
+.widget_archive {}
+.widget_archive ul {}
+.widget_archive ul li {} 
+.widget_archive ul li a {}
+.widget_archive select {}
+.widget_archive option {}
+
+/* tag-cloud widget */
+.widget_links {}
+.widget_links li:after {}
+.widget_links li:before {}
+.widget_tag_cloud {}
+.widget_tag_cloud a {}
+.widget_tag_cloud a:after {}
+.widget_tag_cloud a:before {}
+
+/* calendar widget */
+.widget_calendar {}
+#calendar_wrap {}
+#calendar_wrap th {}
+#calendar_wrap td {}
+#wp-calendar tr td {}
+#wp-calendar caption {}
+#wp-calendar a {}
+#wp-calendar #today {}
+#wp-calendar #prev {}
+#wp-calendar #next {}
+#wp-calendar #next a {}
+#wp-calendar #prev a {}
+
+/* category widget */
+.widget_categories {}
+.widget_categories ul {}
+.widget_categories ul li {} 
+.widget_categories ul ul.children {}
+.widget_categories a {}
+.widget_categories select{}
+.widget_categories select#cat {}
+.widget_categories select.postform {}
+.widget_categories option {}
+.widget_categories .level-0 {}
+.widget_categories .level-1 {}
+.widget_categories .level-2 {}
+.widget_categories .level-3 {}
+
+/* recent-comments widget */
+.recentcomments {}
+#recentcomments {}
+#recentcomments li {}
+#recentcomments li a {}
+.widget_recent_comments {}
+
+/* search widget */
+#searchform {}
+.widget_search {}
+.screen-reader-text {}
+
+/* text widget */
+.textwidget {}
+.widget_text {}
+.textwidget p {}
+/* @end */
+
+
+
+/* @group WordPress CSS - Comment Styles */
+.commentlist .reply {}
+.commentlist .reply a {}
+
+.commentlist .alt {}
+.commentlist .odd {}
+.commentlist .even {}
+.commentlist .thread-alt {}
+.commentlist .thread-odd {}
+.commentlist .thread-even {}
+.commentlist li ul.children .alt {}
+.commentlist li ul.children .odd {}
+.commentlist li ul.children .even {}
+
+.commentlist .vcard {}
+.commentlist .vcard cite.fn {}
+.commentlist .vcard span.says {}
+.commentlist .vcard img.photo {}
+.commentlist .vcard img.avatar {}
+.commentlist .vcard cite.fn a.url {}
+
+.commentlist .comment-meta {} 
+.commentlist .comment-meta a {}
+.commentlist .commentmetadata {}
+.commentlist .commentmetadata a {}
+
+.commentlist .parent {}
+.commentlist .comment {}
+.commentlist .children {}
+.commentlist .pingback {}
+.commentlist .bypostauthor {}
+.commentlist .comment-author {}
+.commentlist .comment-author-admin {}
+
+.commentlist {}
+.commentlist li {}
+.commentlist li p {}
+.commentlist li ul {}
+.commentlist li ul.children li {}
+.commentlist li ul.children li.alt {}
+.commentlist li ul.children li.byuser {}
+.commentlist li ul.children li.comment {}
+.commentlist li ul.children li.depth-(id) {}
+.commentlist li ul.children li.bypostauthor {}
+.commentlist li ul.children li.comment-author-admin {}
+
+#cancel-comment-reply {}
+#cancel-comment-reply a {}
+/* @end */
+
+
+
+/* @group WordPress CSS - body_class() */
+/*
+Interesting info:
+http://digwp.com/2009/08/wordpress-body-class-plus/
+http://digwp.com/2009/05/unique-body-ids-for-your-pages/
+*/
+.rtl {}
+.home {}
+.blog {}
+.archive {}
+.date {}
+.search {}
+.paged {}
+.attachment {}
+.error404 {}
+.single postid-(id) {}
+.attachmentid-(id) {}
+.attachment-(mime-type) {}
+.author {}
+.author-(user_nicename) {}
+.category {}
+.category-(slug) {}
+.tag {}
+.tag-(slug) {}
+.page-parent {}
+.page-child parent-pageid-(id) {}
+.page-template page-template-(template file name) {}
+.search-results {}
+.search-no-results {}
+.logged-in {}
+.paged-(page number) {}
+.single-paged-(page number) {}
+.page-paged-(page number) {}
+.category-paged-(page number) {}
+.tag-paged-(page number) {}
+.date-paged-(page number) {}
+.author-paged-(page number) {}
+.search-paged-(page number) {}
+/* @end */
+
+
+
+/* @group WordPress CSS - post_class() */
+/*
+Interesting info:
+http://codex.wordpress.org/Template_Tags/post_class
+http://digwp.com/2010/01/include-the-category-id-via-post_class/
+http://digwp.com/2010/03/add-classes-to-post_class/
+*/
+.post-id {}
+.post {}
+.page {}
+.attachment {}
+.sticky {}
+.hentry {}
+.category-misc {}
+.category-example {}
+.tag-news {}
+.tag-wordpress {}
+.tag-markup {}
+/* @end */
+/* @end */
+
+
+
+
+
+
+@media print {
+/* 
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+ */
+ 
+* {background: transparent !important; color: #444 !important; text-shadow: none !important;}
+  a, a:visited {color: #444 !important; text-decoration: underline;}
+  a:after {content: " (" attr(href) ")";} 
+  abbr:after {content: " (" attr(title) ")";}
+  .ir a:after {content: "";}  /* Don't show links for images */
+  pre, blockquote {border: 1px solid #999; page-break-inside: avoid;}
+  thead {display: table-header-group;} /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  tr, img {page-break-inside: avoid;}
+  @page {margin: 0.5cm;}
+  p, h2, h3 {orphans: 3; widows: 3;}
+  h2, h3{page-break-after: avoid;}
+}
+
+
+
+/* @group Media queries for responsive design */
+@media all and (orientation:portrait) {
+  /* Style adjustments for portrait mode goes here */
+  
+}
+
+@media all and (orientation:landscape) {
+  /* Style adjustments for landscape mode goes here */
+  
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
+   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+  
+  
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
+     j.mp/textsizeadjust 
+  html {-webkit-text-size-adjust:none; -ms-text-size-adjust:none;} */
+}
+/* @end */
