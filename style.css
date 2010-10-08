@@ -719,6 +719,65 @@ http://digwp.com/2010/03/add-classes-to-post_class/
 
 
 
+/* @group Diagnostic CSS */
+/* More info: http://meyerweb.com/eric/tools/css/diagnostics/ */
+/*
+1) The more advanced version, which uses the :not() syntax and outlines and so isn't suitable for IE7
+Test HTML: http://meyerweb.com/eric/tools/css/diagnostics/demo-not.html
+*/
+div:empty, span:empty,
+li:empty, p:empty,
+td:empty, th:empty {padding: 0.5em; background: yellow;}
+
+*[style], font, center {outline: 5px solid red;}
+*[class=""], *[id=""] {outline: 5px dotted red;}
+
+img[alt=""] {border: 3px dotted red;}
+img:not([alt]) {border: 5px solid red;}
+img[title=""] {outline: 3px dotted fuchsia;}
+img:not([title]) {outline: 5px solid fuchsia;}
+
+table:not([summary]) {outline: 5px solid red;}
+table[summary=""] {outline: 3px dotted red;}
+th {border: 2px solid red;}
+th[scope="col"], th[scope="row"] {border: none;}
+
+a[href]:not([title]) {border: 5px solid red;}
+a[title=""] {outline: 3px dotted red;}
+a[href="#"] {background: lime;}
+a[href=""] {background: fuchsia;}
+
+/*
+2) The IE7 version, which does much the same things but in a less straightforward manner and uses borders instead of outlines.
+Test HTML: http://meyerweb.com/eric/tools/css/diagnostics/demo-onoff.html
+*/
+div:empty, span:empty,
+li:empty, p:empty,
+td:empty, th:empty
+{padding: 0.5em; background: yellow;}
+
+*[style], img, a[href], font, center {border: 5px solid red;}
+*[class=""], *[id=""] {border: 5px dotted red;}
+table, th {border: 5px solid red;}
+
+img {border: 5px solid red;}
+img[alt][title] {border-width: 0;}
+img[alt] {border-color: fuchsia;}
+img[alt], img[title] {border-style: double;}
+img[alt=""][title],
+img[alt][title=""] {border-width: 3px;}
+img[alt=""][title=""] {border-style: dotted;}
+
+table[summary],
+th[scope="col"],
+th[scope="row"]
+{border: 1px solid #AAA;}
+
+a[title] {border-width: 0;}
+a[title=""] {border-width: 3px;}
+a[href="#"] {background: lime;}
+a[href=""] {background: fuchsia;}
+/* @end */
 
 
 
@@ -764,3 +823,5 @@ http://digwp.com/2010/03/add-classes-to-post_class/
   html {-webkit-text-size-adjust:none; -ms-text-size-adjust:none;} */
 }
 /* @end */
+
+
