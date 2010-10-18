@@ -802,6 +802,26 @@ a[href=""] {background: fuchsia;}
 
 
 
+/* @group Typekit font loading process styles */
+/* NOTE: these classes are applied to <html> element */
+.wf-loading
+{
+	/* styles to use when web fonts are loading */
+}
+
+.wf-active
+{
+	/* styles to use when web fonts are active */
+}
+
+.wf-inactive
+{
+	/* styles to use when web fonts are inactive */
+}
+/* @end */
+
+
+
 /* @group Media queries for responsive design */
 @media all and (orientation:portrait) {
   /* Style adjustments for portrait mode goes here */
