@@ -803,7 +803,10 @@ a[href=""] {background: fuchsia;}
 
 
 /* @group Typekit font loading process styles */
-/* NOTE: these classes are applied to <html> element */
+/*
+NOTE: these classes are applied to <html> element.
+http://blog.typekit.com/2010/10/18/more-control-with-typekits-font-events/
+*/
 .wf-loading
 {
 	/* styles to use when web fonts are loading */
